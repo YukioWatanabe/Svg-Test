@@ -1,32 +1,288 @@
 <html>
     <head>
+        <meta charset="utf-8">
     </head>
     <style>
-        .dente > svg > path, .dente > svg > polygon{
+        /* http://meyerweb.com/eric/tools/css/reset/ 
+           v2.0 | 20110126
+           License: none (public domain)
+        */
+
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure, 
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        
+        /**************************************************************************************/
+        
+        .dente{
+            width:100px;
+        }
+        .dente > svg{
             stroke:#ACACAC;
             stroke-width:1;
-            fill: url(#cor-dente);
+        }
+        .dente > svg > path, .dente > svg > polygon{
+            fill:url(#textura-dente);
             transition: fill 0.4s ease-out;
         }
         .dente > svg > path:hover, .dente > svg > polygon:hover{
             fill: #58EDEC;
         }
+        .dente > svg > path.face-1{
+            d: path("M 20 20 q 60 -25 75 10 q 75 15 150 0 q 15 -35 75 -10 L245 95 L95 95 Z");
+        }
+        .dente > svg > path.face-2{
+            d: path("M 20 20 q -25 60 10 75 q 15 75 0 150 q -35 15 -10 75 L95 245 L95 95 Z");
+        }
+        .dente > svg > path.face-3{
+            d: path("M 20 320 q 60 25 75 -10 q 75 -15 150 0 q 15 35 75 10 L245 245 L95 245 Z");
+        }
+        .dente > svg > path.face-4{
+            d: path("M 320 20 q 25 60 -10 75 q -15 75 0 150 q 35 15 10 75 L245 245 L245 95 Z");
+        }
+        .dente > svg > path.centro{
+            d: path("M95 95 L95 245 L245 245 L245 95");
+        }
+        body{
+            padding:20px;
+        }
+        body *{
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 14pt;
+            box-sizing: border-box;
+            color: #666;
+        }
+        .odontograma{
+            height:900px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .odontograma > .title{
+            width: 100%;
+            font-size: 18pt;
+            border: 1px solid #ACACAC;
+            border-radius: 10px 10px 0 0;
+            padding: 20px;
+        }
+        .content{
+            position: relative;
+            border: 1px solid #ACACAC;
+            border-top: none;
+            border-radius: 0 0 10px 10px;
+            height: 100%;
+        }
+        .side-menu{
+            height: 100%;
+            width:25%;
+            border-right: 1px solid #ACACAC;
+            float: left;
+        }
+        .procedimento-menu{
+            width:100%;
+        }
+        .section-header{
+            width: 100%;
+            text-align: center;
+            border-bottom: 1px solid #ACACAC;
+            padding: 10px;
+        }
+        .menu-group{
+            height:65%;
+            overflow: auto; 
+        }
+        .menu-item{
+            padding: 20px;
+            border-bottom: 1px solid #ACACAC;
+            transition:background-color 0.4s ease;
+            cursor: pointer;
+        }
+        .menu-item::after{
+            content:" "
+            background-image: url(arrow.svg);
+            width:1em;
+        }
+        .menu-item:hover{
+            background-color: #E6E6E6;
+        }
+        .menu-item > .cor-legenda{
+            height:20px;
+            width:20px;
+            border: 1px solid #ACACAC;
+            padding:5px;
+            display: inline-block;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+        .menu-group > .menu-item:last-child{
+            border:none;
+        }
+        .observacao{
+            width:100%;
+            border-top: 1px solid #ACACAC;
+        }
+        .observacao > .textarea-wrapper{
+            display: block;
+            width: 100%;
+            height:35%;
+            padding: 5px;
+        }
+        .observacao > .textarea-wrapper::after{
+            content:"Ainda restam 100 caracteres.";
+            display: block;
+            font-size:10pt;
+            color:#ACACAC;
+            margin-top: 5px;
+            text-align: right;
+        }
+        .observacao > .textarea-wrapper > textarea{
+            display: block;
+            width: 100%;
+            height:55%;
+        }
+        .workspace{
+            height: 100%;
+            width: 75%;
+            float: right;
+        }
+        .button-container{
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 10px;
+        }
+        #botao-editar{
+            visibility: hidden;
+            opacity: 0;
+            transition:all 0.4s ease;
+        }
+        .workspace:hover #botao-editar{
+            opacity: 1;
+            visibility: visible;
+        }
+        .button,.radio-button{
+            background-color: #FFF;
+            padding:15px;
+            border: 1px solid #ACACAC;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.4s ease;
+        }
+        .button:hover,.radio-button:hover{
+            background-color: #E6E6E6;
+        }
+        .radio-button.active{
+            background-color:#38a58a;
+        }
     </style>
     <body>
-        <div class="dente">
-            <svg viewBox="0 0 400 400" style="width:500px; height:500px;">
-                <defs>
-                    <radialGradient  id="cor-dente" cx="0.5" cy="0.5" r="0.90">
-                        <stop offset="0%" stop-color="#FFF"/>
-                        <stop offset="100%" stop-color="#E6E6E6"/>
-                    </radialGradient >
-                </defs>
-                <path d="M 20 20 q 60 -25 75 10 q 75 15 150 0 q 15 -35 75 -10 L245 95 L95 95 Z"/>
-                <path d="M 20 20 q -25 60 10 75 q 15 75 0 150 q -35 15 -10 75 L95 245 L95 95 Z"/>
-                <path d="M 20 320 q 60 25 75 -10 q 75 -15 150 0 q 15 35 75 10 L245 245 L95 245 Z"/>
-                <path d="M 320 20 q 25 60 -10 75 q -15 75 0 150 q 35 15 10 75 L245 245 L245 95 Z"/>
-                <polygon points="95 95,95 245,245 245,245 95"/>
+        <fieldset class="odontograma">
+            <div class="title">Odontograma</div>
+            <div class="content">
+                
+                <div class="side-menu">
+                    <div class="procedimento-menu">
+                        <div class="section-header">Procedimentos</div>
+                        <ul class="menu-group">
+                            <li class="menu-item"><div class="cor-legenda" style="background-color:#00A"></div>Restauração</li>
+                            <li class="menu-item"><div class="cor-legenda" style="background-color:#AA0"></div>Extração</li>
+                            <li class="menu-item"><div class="cor-legenda" style="background-color:#A0A"></div>Canal</li>
+                            <li class="menu-item"><div class="cor-legenda" style="background-color:#0A0"></div>Branqueamento</li>
+                            <li class="menu-item"><div class="cor-legenda" style="background-color:#A00"></div>Aparelho</li>
+                            <li class="menu-item"><div class="cor-legenda" style="background-color:#A00"></div>Aparelho</li>
+                            <li class="menu-item"><div class="cor-legenda" style="background-color:#A00"></div>Aparelho</li>
+                            <li class="menu-item"><div class="cor-legenda" style="background-color:#A00"></div>Aparelho</li>
+                            <li class="menu-item"><div class="cor-legenda" style="background-color:#A00"></div>Aparelho</li>
+                            <li class="menu-item"><div class="cor-legenda" style="background-color:#A00"></div>Aparelho</li>
+                            <li class="menu-item"><div class="cor-legenda" style="background-color:#A00"></div>Aparelho</li>
+                            <li class="menu-item"><div class="cor-legenda" style="background-color:#A00"></div>Aparelho</li>
+                            <li class="menu-item"><div class="cor-legenda" style="background-color:#A00"></div>Aparelho</li>
+                        </ul>
+                    </div>
+                    <div class="observacao">
+                        <div class="section-header">Observações</div>
+                        <div class="textarea-wrapper">
+                            <textarea></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="workspace">
+                    <div class="button-container">
+                        <button id="botao-editar" class="button">Editar</button>
+                        <button id="botao-deciduo" class="radio-button">Deciduo</button>
+                    </div>
+                </div>
+                
+            </div>
+        </fieldset>
+        
+        <svg width="0" height="0">
+            <defs>
+                <radialGradient id="textura-dente" cx="0.5" cy="0.5" r="0.90">
+                    <stop offset="0%" stop-color="#FFF"/>
+                    <stop offset="100%" stop-color="#E6E6E6"/>
+                </radialGradient >
+            </defs>
+        </svg>
+        <figure class="dente" style="display:none;">
+            <svg viewBox="0 0 400 400">
+                <path class="face-1"/>
+                <path class="face-2"/>
+                <path class="face-3"/>
+                <path class="face-4"/>
+                <path class="centro"/>
             </svg>
+            <figcaption>1</figcaption>
+        </figure>
+        <div class="dente" style="display:none;">
+            <svg viewBox="0 0 400 400">
+                <path class="face-1"/>
+                <path class="face-2"/>
+                <path class="face-3"/>
+                <path class="face-4"/>
+                <path class="centro"/>
+            </svg>
+            <figcaption>2</figcaption>
         </div>
     </body>
 </html>
