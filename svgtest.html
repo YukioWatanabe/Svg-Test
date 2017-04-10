@@ -53,9 +53,13 @@
         }
         
         /**************************************************************************************/
-        
         .dente{
             width:100px;
+            float: left;
+        }
+        .dente > figcaption{
+            text-align: center;
+            margin-top: 10px;
         }
         .dente > svg{
             stroke:#ACACAC;
@@ -82,6 +86,15 @@
         }
         .dente > svg > path.centro{
             d: path("M95 95 L95 245 L245 245 L245 95");
+        }
+        .dente-group{
+            margin-bottom: 30px;
+            clear: both;
+        }
+        .dente-group:after{
+            content:" ";
+            display: table;
+            clear: both;
         }
         body{
             padding:20px;
@@ -141,7 +154,7 @@
             background-image: url(arrow.svg);
             width:1em;
         }
-        .menu-item:hover{
+        .menu-group > li > .menu-item:hover{
             background-color: #E6E6E6;
         }
         .menu-item > .cor-legenda{
@@ -153,8 +166,16 @@
             margin-right: 10px;
             border-radius: 5px;
         }
-        .menu-group > .menu-item:last-child{
+        .menu-group > li:last-child{
             border:none;
+        }
+        .menu-subgroup .menu-item{
+            padding-left: 40px;
+            background-color: #e6e6e6;
+        }
+        .menu-subgroup .menu-item:hover{
+            background-color: #666;
+            color: #FFF;
         }
         .observacao{
             width:100%;
@@ -182,6 +203,8 @@
         .workspace{
             height: 100%;
             width: 75%;
+            padding: 70px;
+            overflow: auto;
             float: right;
         }
         .button-container{
@@ -200,8 +223,9 @@
             visibility: visible;
         }
         .button,.radio-button{
+            font-size: 12pt;
             background-color: #FFF;
-            padding:15px;
+            padding:10px;
             border: 1px solid #ACACAC;
             border-radius: 5px;
             cursor: pointer;
@@ -223,19 +247,149 @@
                     <div class="procedimento-menu">
                         <div class="section-header">Procedimentos</div>
                         <ul class="menu-group">
-                            <li class="menu-item"><div class="cor-legenda" style="background-color:#00A"></div>Restauração</li>
-                            <li class="menu-item"><div class="cor-legenda" style="background-color:#AA0"></div>Extração</li>
-                            <li class="menu-item"><div class="cor-legenda" style="background-color:#A0A"></div>Canal</li>
-                            <li class="menu-item"><div class="cor-legenda" style="background-color:#0A0"></div>Branqueamento</li>
-                            <li class="menu-item"><div class="cor-legenda" style="background-color:#A00"></div>Aparelho</li>
-                            <li class="menu-item"><div class="cor-legenda" style="background-color:#A00"></div>Aparelho</li>
-                            <li class="menu-item"><div class="cor-legenda" style="background-color:#A00"></div>Aparelho</li>
-                            <li class="menu-item"><div class="cor-legenda" style="background-color:#A00"></div>Aparelho</li>
-                            <li class="menu-item"><div class="cor-legenda" style="background-color:#A00"></div>Aparelho</li>
-                            <li class="menu-item"><div class="cor-legenda" style="background-color:#A00"></div>Aparelho</li>
-                            <li class="menu-item"><div class="cor-legenda" style="background-color:#A00"></div>Aparelho</li>
-                            <li class="menu-item"><div class="cor-legenda" style="background-color:#A00"></div>Aparelho</li>
-                            <li class="menu-item"><div class="cor-legenda" style="background-color:#A00"></div>Aparelho</li>
+                            <li>
+                                <div class="menu-item">
+                                    <div class="cor-legenda" style="background-color:#00A"></div>Restauração
+                                </div>
+                                <ul class="menu-subgroup">
+                                    <li class="menu-item">Restauração completa</li>
+                                    <li class="menu-item">Restauração parcial</li>
+                                    <li class="menu-item">Restauração a laser</li>
+                                    <li class="menu-item">Restauração com tratamento intensivo</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="menu-item">
+                                    <div class="cor-legenda" style="background-color:#AA0"></div>Extração
+                                </div>
+                                <ul class="menu-subgroup">
+                                    <li class="menu-item">Restauração completa</li>
+                                    <li class="menu-item">Restauração parcial</li>
+                                    <li class="menu-item">Restauração a laser</li>
+                                    <li class="menu-item">Restauração com tratamento intensivo</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="menu-item">
+                                    <div class="cor-legenda" style="background-color:#A0A"></div>Canal
+                                </div>
+                                <ul class="menu-subgroup">
+                                    <li class="menu-item">Restauração completa</li>
+                                    <li class="menu-item">Restauração parcial</li>
+                                    <li class="menu-item">Restauração a laser</li>
+                                    <li class="menu-item">Restauração com tratamento intensivo</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="menu-item">
+                                    <div class="cor-legenda" style="background-color:#0A0"></div>Branqueamento
+                                </div>
+                                <ul class="menu-subgroup">
+                                    <li class="menu-item">Restauração completa</li>
+                                    <li class="menu-item">Restauração parcial</li>
+                                    <li class="menu-item">Restauração a laser</li>
+                                    <li class="menu-item">Restauração com tratamento intensivo</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="menu-item">
+                                    <div class="cor-legenda" style="background-color:#A00"></div>Aparelho
+                                </div>
+                                <ul class="menu-subgroup">
+                                    <li class="menu-item">Restauração completa</li>
+                                    <li class="menu-item">Restauração parcial</li>
+                                    <li class="menu-item">Restauração a laser</li>
+                                    <li class="menu-item">Restauração com tratamento intensivo</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="menu-item">
+                                    <div class="cor-legenda" style="background-color:#A00"></div>Aparelho
+                                </div>
+                                <ul class="menu-subgroup">
+                                    <li class="menu-item">Restauração completa</li>
+                                    <li class="menu-item">Restauração parcial</li>
+                                    <li class="menu-item">Restauração a laser</li>
+                                    <li class="menu-item">Restauração com tratamento intensivo</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="menu-item">
+                                    <div class="cor-legenda" style="background-color:#A00"></div>Aparelho
+                                </div>
+                                <ul class="menu-subgroup">
+                                    <li class="menu-item">Restauração completa</li>
+                                    <li class="menu-item">Restauração parcial</li>
+                                    <li class="menu-item">Restauração a laser</li>
+                                    <li class="menu-item">Restauração com tratamento intensivo</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="menu-item">
+                                    <div class="cor-legenda" style="background-color:#A00"></div>Aparelho
+                                </div>
+                                <ul class="menu-subgroup">
+                                    <li class="menu-item">Restauração completa</li>
+                                    <li class="menu-item">Restauração parcial</li>
+                                    <li class="menu-item">Restauração a laser</li>
+                                    <li class="menu-item">Restauração com tratamento intensivo</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="menu-item">
+                                    <div class="cor-legenda" style="background-color:#A00"></div>Aparelho
+                                </div>
+                                <ul class="menu-subgroup">
+                                    <li class="menu-item">Restauração completa</li>
+                                    <li class="menu-item">Restauração parcial</li>
+                                    <li class="menu-item">Restauração a laser</li>
+                                    <li class="menu-item">Restauração com tratamento intensivo</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="menu-item">
+                                    <div class="cor-legenda" style="background-color:#A00"></div>Aparelho
+                                </div>
+                                <ul class="menu-subgroup">
+                                    <li class="menu-item">Restauração completa</li>
+                                    <li class="menu-item">Restauração parcial</li>
+                                    <li class="menu-item">Restauração a laser</li>
+                                    <li class="menu-item">Restauração com tratamento intensivo</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="menu-item">
+                                    <div class="cor-legenda" style="background-color:#A00"></div>Aparelho
+                                </div>
+                                <ul class="menu-subgroup">
+                                    <li class="menu-item">Restauração completa</li>
+                                    <li class="menu-item">Restauração parcial</li>
+                                    <li class="menu-item">Restauração a laser</li>
+                                    <li class="menu-item">Restauração com tratamento intensivo</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="menu-item">
+                                    <div class="cor-legenda" style="background-color:#A00"></div>Aparelho
+                                </div>
+                                <ul class="menu-subgroup">
+                                    <li class="menu-item">Restauração completa</li>
+                                    <li class="menu-item">Restauração parcial</li>
+                                    <li class="menu-item">Restauração a laser</li>
+                                    <li class="menu-item">Restauração com tratamento intensivo</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="menu-item">
+                                    <div class="cor-legenda" style="background-color:#A00"></div>Aparelho
+                                </div>
+                                <ul class="menu-subgroup">
+                                    <li class="menu-item">Restauração completa</li>
+                                    <li class="menu-item">Restauração parcial</li>
+                                    <li class="menu-item">Restauração a laser</li>
+                                    <li class="menu-item">Restauração com tratamento intensivo</li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                     <div class="observacao">
@@ -247,6 +401,422 @@
                 </div>
 
                 <div class="workspace">
+                    <svg width="0" height="0">
+                        <defs>
+                            <radialGradient id="textura-dente" cx="0.5" cy="0.5" r="0.90">
+                                <stop offset="0%" stop-color="#FFF"/>
+                                <stop offset="100%" stop-color="#E6E6E6"/>
+                            </radialGradient >
+                        </defs>
+                    </svg>
+                    <div class="dente-group">
+                        <figure class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>1</figcaption>
+                        </figure>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>2</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>3</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>4</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>5</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>6</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>7</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>8</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>9</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>10</figcaption>
+                        </div>
+                    </div>
+                    <div class="dente-group">
+                        <figure class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>1</figcaption>
+                        </figure>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>2</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>3</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>4</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>5</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>6</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>7</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>8</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>9</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>10</figcaption>
+                        </div>
+                    </div>
+                    <div class="dente-group">
+                        <figure class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>1</figcaption>
+                        </figure>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>2</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>3</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>4</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>5</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>6</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>7</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>8</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>9</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>10</figcaption>
+                        </div>
+                    </div>
+                    <div class="dente-group">
+                        <figure class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>1</figcaption>
+                        </figure>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>2</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>3</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>4</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>5</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>6</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>7</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>8</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>9</figcaption>
+                        </div>
+                        <div class="dente">
+                            <svg viewBox="0 0 350 350">
+                                <path class="face-1"/>
+                                <path class="face-2"/>
+                                <path class="face-3"/>
+                                <path class="face-4"/>
+                                <path class="centro"/>
+                            </svg>
+                            <figcaption>10</figcaption>
+                        </div>
+                    </div>
                     <div class="button-container">
                         <button id="botao-editar" class="button">Editar</button>
                         <button id="botao-deciduo" class="radio-button">Deciduo</button>
@@ -256,33 +826,5 @@
             </div>
         </fieldset>
         
-        <svg width="0" height="0">
-            <defs>
-                <radialGradient id="textura-dente" cx="0.5" cy="0.5" r="0.90">
-                    <stop offset="0%" stop-color="#FFF"/>
-                    <stop offset="100%" stop-color="#E6E6E6"/>
-                </radialGradient >
-            </defs>
-        </svg>
-        <figure class="dente" style="display:none;">
-            <svg viewBox="0 0 400 400">
-                <path class="face-1"/>
-                <path class="face-2"/>
-                <path class="face-3"/>
-                <path class="face-4"/>
-                <path class="centro"/>
-            </svg>
-            <figcaption>1</figcaption>
-        </figure>
-        <div class="dente" style="display:none;">
-            <svg viewBox="0 0 400 400">
-                <path class="face-1"/>
-                <path class="face-2"/>
-                <path class="face-3"/>
-                <path class="face-4"/>
-                <path class="centro"/>
-            </svg>
-            <figcaption>2</figcaption>
-        </div>
     </body>
 </html>
